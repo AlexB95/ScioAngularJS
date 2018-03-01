@@ -3,33 +3,42 @@ var app = angular.module("appModule", ["ngRoute"]);
 app.config(function($routeProvider){
     $routeProvider
     .when("/",{
-        controller: "firstController",
+        controller: "homeController",
         templateUrl: "templates/home.html"
     })
     .when("/detalle/:nameHola",{
-        controller: "detalleController",
+        controller: "detailsController",
         templateUrl: "templates/detalle.html"
     })
     .otherwise("/");
 });
 
-app.controller("firstController", function(/* $scope, $http */){
-
-    /* $scope.getInfo = function(){
-        $http.get("http://jsonplaceholder.typicode.com/photos")
-            .then(function (data) {
-                $scope.listImages = data.data.splice(0, 7);
-            },function (error) {
-                console("Error");
-            });
-    } */
+app.controller("homeController", function($scope, $http, detailsFactory){
+    vm = this;
+    vm.usuarios = detailsFactory.getImages()
+    console.log(vm.usuarios);
+    
 
 });
 
-app.controller("detalleController", function($scope, $http, $routeParams){
+app.controller("detailsController", function($scope, $http, $routeParams){
 
     $scope.parametroUrl = $routeParams.nameHola;
     
 });
 
-app.factory
+app.factory("detailsFactory", function($http){
+    var listImages = {};
+    listImages.getImages = () => {
+        $http.get("http://jsonplaceholder.typicode.com/photos")
+        .then(function (data) {
+            listImages.imgList = data.data.splice(0, 7);
+        },function (error) {
+            console("Error");
+        });
+        
+        return listImages.imgList;
+    }
+    
+    return listImages;
+});
