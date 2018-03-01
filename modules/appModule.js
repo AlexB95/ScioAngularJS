@@ -36,8 +36,7 @@ app.factory("detailsFactory", function($http){
         },function (error) {
             console("Error");
         });
-        
-        return listImages.imgList;
+        return listImages.img;
     }
     
     return listImages;
