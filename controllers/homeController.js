@@ -1,3 +1,4 @@
 app.controller("homeController", function($scope, $http, detailsFactory){
-    $scope.listImages = detailsFactory.getImages();
+    
+    $scope.listBusiness = detailsFactory.getImages("hello");
 });

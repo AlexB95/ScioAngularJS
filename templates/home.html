@@ -1,10 +1,11 @@
 <div>
     <h2>Hola soy home</h2>
     <ul ng-init="getInfo()">
-            <li ng-repeat="image in listImages.imgList">
-                <p>{{image.title}}</p>
-                <img ng-src={{image.thumbnailUrl}}>
-                <a href="#!/detalle/{{image.title}}">Ver Detalle</a>
+            <li ng-repeat="business in listBusiness.businessList">
+                <h1>{{business.name}}</h1>
+                <img ng-src={{business.photo}} width="500px">
+                <br>
+                <a href="#!/detalle/{{business.name}}">Ver Detalle</a>
             </li>
         </ul>
 </div>

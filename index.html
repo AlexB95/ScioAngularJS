@@ -12,7 +12,11 @@
     <ul id="lista">
 
     </ul>
-    <label id="carga" style="display: none">Cargando...</label>
+    <!-- <label id="carga" style="display: none">Cargando...</label> -->
+    <label id="carga" ng-controller="instructionsController">{{instrictionsText}}</label>
+    
+
+
 
     <div id="details" ng-view>
     </div>
@@ -79,6 +83,7 @@
     <script src="factories/datailsFactory.js"></script>
     <script src="controllers/homeController.js"></script>
     <script src="controllers/detailsController.js"></script>
+    <script src="controllers/instructionsController.js"></script>
     <!-- <script src="factories/BusinessList.js"></script>-->
     <!-- <script src="controllers/homeController.js"></script> -->
   </body>
