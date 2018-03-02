@@ -6,7 +6,7 @@ app.controller("searchController", function($scope) {
     $scope.search = function() {
         var wordToSearch = $scope.businessS;
         if(wordToSearch.length > 2) {
-            
+            $scope.getInfo();
         }
     }
 });
