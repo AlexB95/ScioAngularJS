@@ -7,7 +7,6 @@ app.factory("detailsFactory", function($http){
         },function (error) {
             console("Error");
         });
-        console.log(listBusiness);
         return listBusiness;
     }
     return listBusiness;

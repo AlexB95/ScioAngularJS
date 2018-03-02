@@ -5,18 +5,17 @@
     <title>Search With Angukar</title>
   </head>
   <body>
+    <div ng-controller="searchController">
     <h1 id="titulo">JQUERY</h1>
 
-    <input id="buscar" type="search" name="negocios" value="">
+    <input id="buscar" type="search" ng-model="business" ng-keypress="search()">
     <button id="botonBuscar" type="button" name="button">Buscar</button>
     <ul id="lista">
 
     </ul>
     <!-- <label id="carga" style="display: none">Cargando...</label> -->
     <label id="carga" ng-controller="instructionsController">{{instrictionsText}}</label>
-    
-
-
+    </div>
 
     <div id="details" ng-view>
     </div>
@@ -84,6 +83,7 @@
     <script src="controllers/homeController.js"></script>
     <script src="controllers/detailsController.js"></script>
     <script src="controllers/instructionsController.js"></script>
+    <script src="controllers/searchController.js"></script>
     <!-- <script src="factories/BusinessList.js"></script>-->
     <!-- <script src="controllers/homeController.js"></script> -->
   </body>
