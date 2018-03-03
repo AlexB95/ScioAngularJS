@@ -1,12 +1,19 @@
 
 
-app.controller("searchController", function($scope) {
+app.controller("searchController", function($scope, $timeout, detailsFactory) {
     
-    var band = false;
     $scope.search = function() {
         var wordToSearch = $scope.businessS;
+        $scope.result = "Buscando...";
         if(wordToSearch.length > 2) {
-            $scope.getInfo();
+            $scope.listBusiness = detailsFactory.getImages(wordToSearch.toLowerCase());
         }
+        else {
+            $scope.listBusiness = detailsFactory.getImages("");
+            $scope.result = $scope.listBusiness.finalStatus;
+        }
+        $timeout(function () {
+            $scope.result = $scope.listBusiness.finalStatus;
+        }, 700);
     }
 });

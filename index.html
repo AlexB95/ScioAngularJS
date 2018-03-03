@@ -2,11 +2,14 @@
 <html ng-app="appModule">
   <head>
     <meta charset="utf-8">
+
     <title>Search With Angukar</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.9/angular-route.min.js"></script>
   </head>
   <body>
     <div ng-controller="searchController">
-    <h1 id="titulo">JQUERY</h1>
+    <h1 id="titulo">AngularJS</h1>
 
     <input id="buscar" type="search" ng-model="businessS" ng-keyup="search()">
     <button id="botonBuscar" type="button" name="button">Buscar</button>
@@ -15,76 +18,16 @@
     </ul>
     <!-- <label id="carga" style="display: none">Cargando...</label> -->
     <label id="carga" ng-controller="instructionsController">{{instrictionsText}}</label>
+    <label id="carga" ng-controller="searchController">{{result}}</label>
     </div>
 
     <div id="details" ng-view>
     </div>
-    <!-- <script
-      src="http://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous">
-    </script>
-
-    <script type="text/javascript">
-      var buscador = $("#buscar");
-      var lista = $("#lista");
-      $("#botonBuscar").click(function() {
-        var buscaValor = buscador.val();
-        if(!buscaValor) {
-          buscador.css("border-color", "red");
-          return;
-        }
-        var options = {
-          type: "GET",
-          dataType: 'json',
-          url: "business.json",
-          success: function(result, status) {
-            var results = 0;
-            lista.empty();
-            $("#details").empty();
-            if(status == "success") {
-              if(result.businesses) {
-                result.businesses.forEach(function(b ,a){
-                  if(b.name.toLowerCase().search(buscaValor.toLowerCase()) >= 0) {
-                    results++;
-                    lista.append("<li id='"+b.id+"'>" + b.name + "</li>");
-                    $("#"+b.id).click(function(){
-                      $("#details").html(
-                        "<h1>" + b.name + "</h1>" +
-                        "<h3>Telefono: " + b.phone + "</h3>" +
-                        "<h3>Direccion: " + b.address + "</h3>" +
-                        "<img src='" + b.photo + "'>"
-                      );
-                    });
-                  }
-                  $("#carga").css("display", "none");
-                  if(!results) {
-                    $("#carga").html("No se encontraron resultados. ");
-                    $("#carga").css("display", "block");
-                  }
-
-                });
-              }
-            } else {
-              console.log("error");
-            }
-          }
-        }
-        $("#carga").html("Cargando...");
-        $("#carga").css("display", "block");
-        $.ajax(options)
-      });
-    </script> -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="https://code.angularjs.org/1.6.9/angular-route.min.js"></script>
     <script src="modules/appModule.js"></script>
     <script src="factories/datailsFactory.js"></script>
     <script src="controllers/homeController.js"></script>
     <script src="controllers/detailsController.js"></script>
     <script src="controllers/instructionsController.js"></script>
     <script src="controllers/searchController.js"></script>
-    <!-- <script src="factories/BusinessList.js"></script>-->
-    <!-- <script src="controllers/homeController.js"></script> -->
   </body>
 </html>
