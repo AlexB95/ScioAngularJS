@@ -1,7 +1,8 @@
 app.factory("detailsFactory", function($http){
     var listBusiness = {
         businessList: [],
-        finalStatus: ""
+        finalStatus: "",
+        results: 0
     };
     listBusiness.getImages = (wordToSearch) => {
         $http.get("./business.json")
@@ -11,8 +12,12 @@ app.factory("detailsFactory", function($http){
                 if(element.name.toLowerCase().search(wordToSearch) >= 0) {
                     listBusiness.businessList.push(element);
                 }
-                (listBusiness.businessList.length > 0) ?
-                    listBusiness.finalStatus = "" : listBusiness.finalStatus = "No se encontraron resultados";
+                listBusiness.results = listBusiness.businessList.length;
+                if (listBusiness.results > 0) {
+                    listBusiness.finalStatus = "";
+                } else {
+                    listBusiness.finalStatus = "No se encontraron resultados";
+                }
             });
         },function (error) {
             console.log("Error");

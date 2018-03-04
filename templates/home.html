@@ -1,11 +1,13 @@
 <div>
-    <h2>Hola soy home</h2>
-    <ul ng-init="getInfo()">
-            <li ng-repeat="business in listBusiness.businessList">
-                <h1>{{business.name}}</h1>
-                <img ng-src={{business.photo}} width="500px">
-                <br>
-                <a href="#!/detalle/{{business.name}}">Ver Detalle</a>
+    <h2>Resultados</h2>
+    <business>
+        <ul ng-init="getInfo()">
+            <li ng-repeat="business in listBusiness.businessList | orderBy:'name'">
+                <titles ng-click="goDetails(business.id)" ng-mouseover="selectedItem(business.name)" ng-mouseleave="unselectItem()">
+                    <h1>{{business.name}}</h1>
+                    <img ng-src={{business.photo}} width="500px">
+                </titles>
             </li>
         </ul>
+    </business>
 </div>

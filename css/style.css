@@ -1,0 +1,37 @@
+titles{
+    color: teal;
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+}
+
+business ul{
+    list-style-type: none;
+}
+
+#busqueda {
+    padding-left: 10px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: #333;
+    color: #f2f2f2;
+}
+#businessName{
+    float: right;
+    margin-right: 20px;
+}
+#busqueda > h1{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.content {
+    padding: 16px;
+    margin-top: 30px;
+}
+
+titles img:hover, h1:hover{
+    cursor: pointer;
+} 

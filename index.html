@@ -6,22 +6,21 @@
     <title>Search With Angukar</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.6.9/angular-route.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div ng-controller="searchController">
+    <div id="busqueda" ng-controller="searchController">
     <h1 id="titulo">AngularJS</h1>
 
     <input id="buscar" type="search" ng-model="businessS" ng-keyup="search()">
-    <button id="botonBuscar" type="button" name="button">Buscar</button>
-    <ul id="lista">
-
-    </ul>
-    <!-- <label id="carga" style="display: none">Cargando...</label> -->
-    <label id="carga" ng-controller="instructionsController">{{instrictionsText}}</label>
-    <label id="carga" ng-controller="searchController">{{result}}</label>
+    <button id="botonBuscar" type="button" name="button" ng-click="search()">Buscar</button>
+    <br>
+    <label id="carga" ng-controller="searchController">{{result}}</label><br>
+    <label id="instruccion" ng-controller="instructionsController">{{instrictionsText}}</label>
+    <label id="businessName"></label>
     </div>
 
-    <div id="details" ng-view>
+    <div class="content" ng-controller="searchController" ng-view>
     </div>
     <script src="modules/appModule.js"></script>
     <script src="factories/datailsFactory.js"></script>
