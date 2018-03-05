@@ -1,6 +1,6 @@
 
 
-app.controller("searchController", function($scope, $timeout, detailsFactory) {
+app.controller("searchController", function($scope, $timeout, getBusiness) {
 
     $scope.search = function() {
         window.location.href = "#!/";
@@ -9,9 +9,9 @@ app.controller("searchController", function($scope, $timeout, detailsFactory) {
         $scope.result = "Buscando...";
         console.log(wordToSearch);
         if(wordToSearch.length > 2) {
-            $scope.listBusiness = detailsFactory.getImages(wordToSearch.toLowerCase());
+            $scope.listBusiness = getBusiness.getImages(wordToSearch.toLowerCase());
         } else {
-            $scope.listBusiness = detailsFactory.getImages("");
+            $scope.listBusiness = getBusiness.getImages("");
             $scope.result = $scope.listBusiness.finalStatus;
         }
         

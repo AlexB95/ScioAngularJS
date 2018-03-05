@@ -1,4 +1,4 @@
-app.factory("detailsFactory", function($http){
+app.factory("getBusiness", function($http){
     var listBusiness = {
         businessList: [],
         finalStatus: "",
@@ -25,4 +25,26 @@ app.factory("detailsFactory", function($http){
         return listBusiness;
     }
     return listBusiness;
+});
+
+app.factory("detailsFactory", function($http){
+    var listDetails = {
+        businessDetails: {},
+        message: "Hola"
+    };
+    listDetails.getDetails = (businessID) => {
+        $http.get("./business.json")
+        .then(function (data) {
+            listDetails.businessDetails = [];
+            data.data.businesses.forEach(element => {
+                if(element.id == businessID) {
+                    listDetails.businessDetails = element;
+                }
+            });
+        },function (error) {
+            console.log("Error");
+        });
+        return listDetails;
+    }
+    return listDetails;
 });

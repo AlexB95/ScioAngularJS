@@ -1,3 +1,10 @@
-<h1>{{parametroUrl}}</h1>
-<!-- <p>{{business.phone | telFilter}}</p> -->
-<a href="#/">Regresar</a>
+<div class="detailsContent" ng-init="getDetails(parametroUrl)">
+    <a href="#/"><img src="http://altzairu.com.mx/wp-content/uploads/2016/11/boton_regresar.png" 
+        alt="regresar" width="120px"></a>
+    <div>
+        <h1>{{detailsBusiness.businessDetails.name}}</h1>
+        <h3>Telefono: {{detailsBusiness.businessDetails.phone | telFilter}}</h3>
+        <h3>Direccion: {{detailsBusiness.businessDetails.address}}</h3>
+        <img src={{detailsBusiness.businessDetails.photo}}>
+    </div>
+</div>

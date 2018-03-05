@@ -1,7 +1,7 @@
-app.controller("homeController", function($scope, $http, detailsFactory){
+app.controller("homeController", function($scope, $http, getBusiness){
 
     $scope.getInfo = function() {
-        $scope.listBusiness = detailsFactory.getImages("");
+        $scope.listBusiness = getBusiness.getImages("");
     };
 
     $scope.goDetails = (businessName) => {
